@@ -28,17 +28,11 @@ class MainActivity : Activity() {
 
         val itemAdapter = ItemAdapter(colors)
         binding.viewPager2.adapter = itemAdapter
+
         binding.viewPager2.offscreenPageLimit = 1
-        binding.viewPager2.clipToPadding = false
 
-        val sideItemVisibility = resources.getDimension(R.dimen.side_item_visibility)
+        // Horizontal margin from current item side to the parent container
         val horizontalItemMargin = resources.getDimension(R.dimen.horizontal_margin)
-
-        val pageTranslationX = horizontalItemMargin + sideItemVisibility
-        val pageTransformer = ViewPager2.PageTransformer { page: View, position: Float ->
-            page.translationX = -pageTranslationX * position
-        }
-        binding.viewPager2.setPageTransformer(pageTransformer)
 
         val itemDecoration = object: RecyclerView.ItemDecoration() {
             override fun getItemOffsets(
@@ -52,5 +46,14 @@ class MainActivity : Activity() {
             }
         }
         binding.viewPager2.addItemDecoration(itemDecoration)
+
+        // How much of the side items will be visible
+        val sideItemVisibility = resources.getDimension(R.dimen.side_item_visibility)
+
+        val pageTranslationX = horizontalItemMargin + sideItemVisibility
+        val pageTransformer = ViewPager2.PageTransformer { page: View, position: Float ->
+            page.translationX = -pageTranslationX * position
+        }
+        binding.viewPager2.setPageTransformer(pageTransformer)
     }
 }
