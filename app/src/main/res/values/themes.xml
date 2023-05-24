@@ -5,5 +5,7 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.CarouselViewPager2" parent="Base.Theme.CarouselViewPager2" />
+    <style name="Theme.CarouselViewPager2" parent="Base.Theme.CarouselViewPager2">
+        <item name="colorPrimary">@color/black</item>
+    </style>
 </resources>

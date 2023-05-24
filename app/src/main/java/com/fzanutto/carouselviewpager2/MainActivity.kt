@@ -18,15 +18,23 @@ class MainActivity : Activity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val colors = listOf(
-            Color.CYAN,
-            Color.BLACK,
-            Color.GREEN,
-            Color.LTGRAY,
-            Color.MAGENTA
+        val imageResources = listOf(
+            R.drawable.banana,
+            R.drawable.strawberry,
+            R.drawable.orange,
+            R.drawable.apple,
+            R.drawable.grape
         )
 
-        val itemAdapter = ItemAdapter(colors)
+        val labels = listOf(
+            "Banana",
+            "Strawberry",
+            "Orange",
+            "Apple",
+            "Grape"
+        )
+
+        val itemAdapter = ItemAdapter(imageResources, labels)
         binding.viewPager2.adapter = itemAdapter
 
         binding.viewPager2.offscreenPageLimit = 1
