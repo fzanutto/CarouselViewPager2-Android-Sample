@@ -21,7 +21,6 @@ class ItemAdapter(
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.binding.view.setBackgroundColor(colors[position])
-        holder.binding.view.alpha = 0.8f
     }
 
     inner class ItemViewHolder(val binding: PagerItemBinding): RecyclerView.ViewHolder(binding.root)
